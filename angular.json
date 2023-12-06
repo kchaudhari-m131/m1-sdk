@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "m1-sdk-formly": {
+      "projectType": "library",
+      "root": "projects/m1-sdk-formly",
+      "sourceRoot": "projects/m1-sdk-formly/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/m1-sdk-formly/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/m1-sdk-formly/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/m1-sdk-formly/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/m1-sdk-formly/src/test.ts",
+            "tsConfig": "projects/m1-sdk-formly/tsconfig.spec.json",
+            "karmaConfig": "projects/m1-sdk-formly/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "m1-sdk-formly"
 }

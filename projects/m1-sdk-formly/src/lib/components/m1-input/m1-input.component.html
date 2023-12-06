@@ -1,0 +1,26 @@
+<ng-container *ngIf="!to['maskConfig']; else maskedInput">
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>{{ to["label"] }}</mat-label>
+
+    <input class="mat-input" [errorStateMatcher]="errorStateMatcher" matInput type="{{to.type}}"
+      placeholder="{{to['placeholder']}}" (focus)="onFocusIn()" (blur)="onFocusOut()" [id]="id"
+      [formControl]="$any(formControl)" autocomplete="off" [formlyAttributes]="field" [maxlength]="to['maxlength']">
+    <mat-error>
+      <formly-validation-message [field]="field"></formly-validation-message>
+    </mat-error>
+  </mat-form-field>
+
+</ng-container>
+<ng-template #maskedInput>
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>{{ to["label"] }}</mat-label>
+
+    <input class="mat-input" matInput type="{{to.type}}" [id]="id" placeholder="{{to['placeholder']}}"
+      [formControl]="$any(formControl)" autocomplete="off" [formlyAttributes]="field" [maxlength]="to['maxlength']"
+      (paste)="onPaste($event)" [errorStateMatcher]="errorStateMatcher" [mask]="to['maskConfig'].mask"
+      [patterns]="to['maskConfig'].pattern" [hiddenInput]="to['maskConfig'].hideInput">
+    <mat-error>
+      <formly-validation-message [field]="field"></formly-validation-message>
+    </mat-error>
+  </mat-form-field>
+</ng-template>

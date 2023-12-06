@@ -1,0 +1,31 @@
+<ng-container *ngIf="!to['isDisabledChips']">
+  <mat-chip-list #chipList id="chiplist-search">
+
+    <mat-chip class="mob-search-chip" [id]="'btn-chip-search-'+(i+1)" *ngFor="let filter of selectedFilter; let i = index"
+      (removed)="removeFilter(filter)">
+      {{ filter.displayVal }} "{{filter.searchText}}"
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+
+    <input matInput [matAutocomplete]="auto" #trigger="matAutocompleteTrigger" #selectedDs [matChipInputFor]="chipList"
+      [disabled]="selectedFilter.length >= to['maxInputSearch']" [formControl]="$any(formControl)"
+      [formlyAttributes]="field" [id]="id" placeholder="{{to['placeholder']}}" class="m1-theme mat-input-element"
+      minlength="{{to['minLength']}}" (keydown.escape)="escapeKeydown($event)">
+
+  </mat-chip-list>
+
+  <mat-autocomplete #auto="matAutocomplete" id="inp-search-autocomplete" class="mat-autocomplete-panel"
+    (optionSelected)="onOptionSelected($event.option.value)" [displayWith]="displayFn">
+    <mat-option *ngFor="let value of filter | async" [value]="value" class="sm">
+      {{ value.displayVal }} "{{value.searchText}}"
+    </mat-option>
+  </mat-autocomplete>
+</ng-container>
+
+<ng-container *ngIf="to['isDisabledChips']">
+  <input matInput [formControl]="$any(formControl)"
+  [formlyAttributes]="field" [id]="id" placeholder="{{to['placeholder']}}" class="m1-theme mat-input-element"
+  minlength="{{to['minLength']}}" (keydown.escape)="escapeKeydown($event)">
+</ng-container>

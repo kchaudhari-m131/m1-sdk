@@ -1,0 +1,51 @@
+<!-- <ng-container>
+  <mat-form-field [hideRequiredMarker]="to['hideRequiredMarker']" #outlinedinput [appearance]="to['appearance']||'outline'"
+    class="w-100" (focus)="outlinedinput.updateOutlineGap()">
+    <mat-label [id]="to['label_id']">{{ to["label"] }}</mat-label>
+
+    <input matInput placeholder="{{to['placeholder']}}" type="{{to['type']}}" [formlyAttributes]="field" color="primary"
+      [id]="id" [formControl]="$any(formControl)" autocomplete="off" maxlength="{{to['maxLength']}}"
+      [readonly]="to['readonly']" required="{{to['required']}}" [value]="to['value']" [disabled]="to['disabled']||false"
+      [mask]="to['mask']" [prefix]="to['maskPrefix']" [attr.patterns]="to['patterns']" [class]="to['class']">
+    <span mat-button class="mr-1" matPrefix *ngIf="to['prefix']">{{ to["prefix"] &nbsp;}}</span>
+    <button [id]="to['suffix_id']" [type]="to['suffix_type'] || 'button'" (click)="to['suffix_click']($event)" mat-button class="upper-case"
+      matSuffix *ngIf="to['suffix']" color="primary">{{ to["suffix"]
+      }}</button>
+    <button [id]="to['suffix2_id']" mat-button class="upper-case" (click)="to['suffix2_click']($event)" matSuffix *ngIf="to['suffix_2']"
+      color="primary"> {{ to["suffix_2"]
+      }}</button>
+    <button [id]="to['suffix3_id']" mat-button class="upper-case" (click)="to['suffix3_click']($event)" matSuffix *ngIf="to['suffix_3']"
+      color="primary">{{ to["suffix_3"] }}</button>
+    <mat-error>
+      <formly-validation-message [field]="field"></formly-validation-message>
+    </mat-error>
+  </mat-form-field>
+  <mat-hint *ngIf="to['description']">{{ to["description"] }}</mat-hint>
+</ng-container> -->
+
+
+<ng-container>
+  <mat-form-field [hideRequiredMarker]="to['hideRequiredMarker']" #outlinedinput [appearance]="to['appearance']||'outline'"
+    class="w-100" (focus)="outlinedinput.updateOutlineGap()">
+    <mat-label [id]="to['label_id']">{{ to["label"] }}</mat-label>
+
+    <input matInput placeholder="{{to['placeholder']}}" [formlyAttributes]="field" color="primary"
+      type="{{to['type']}}" [id]="id" [formControl]="$any(formControl)" autocomplete="off" maxlength="{{to['maxLength']}}"
+      [readonly]="to['readonly']" [required]="to['disabled']||false" [value]="to['value']" [disabled]="to['disabled']||false"
+      [mask]="to['mask']" [prefix]="to['maskPrefix']" [attr.patterns]="to['patterns']" [class]="to['class']">
+    <span mat-button class="mr-1" matPrefix *ngIf="to['prefix']">{{ to["prefix"] &nbsp;}}</span>
+    <button [id]="to['suffix_id']" [type]="to['suffix_type'] || 'button'" (click)="to['suffix_click']($event)" mat-button class="upper-case"
+      matSuffix *ngIf="to['suffix']" color="primary">{{ to["suffix"]
+      }}</button>
+    <button [id]="to['suffix2_id']" mat-button class="upper-case" (click)="to['suffix2_click']($event)" matSuffix *ngIf="to['suffix_2']"
+      color="primary"> {{ to["suffix_2"]
+      }}</button>
+    <button [id]="to['suffix3_id']" mat-button class="upper-case" (click)="to['suffix3_click']($event)" matSuffix *ngIf="to['suffix_3']"
+      color="primary">{{ to["suffix_3"] }}</button>
+    <mat-error>
+      <formly-validation-message [field]="field"></formly-validation-message>
+    </mat-error>
+  </mat-form-field>
+  <mat-hint *ngIf="to['description']">{{ to["description"] }}</mat-hint>
+</ng-container>
+

@@ -1,0 +1,56 @@
+<input matInput [matAutocomplete]="auto" #trigger="matAutocompleteTrigger" #selectedDs [formControl]="$any(formControl)"
+  [formlyAttributes]="field" [id]="id" placeholder="{{to.placeholder}}" [errorStateMatcher]="errorStateMatcher"
+  class="m1-theme mat-input-element" (keydown.escape)="escapeKeydown($event)" maxlength="{{to['maxLength']}}">
+<ng-template #matSuffix>
+  <mat-spinner *ngIf="to.disabled" class="disabled-input-spinner my-0 mx-auto" diameter=20></mat-spinner>
+  <mat-icon *ngIf="model[field?.key?.toString() || ''] && !to.disabled" aria-hidden="false" id="clear" class="input-reset"
+    (click)="resetInput( $event,trigger, auto)">
+    cancel</mat-icon>
+</ng-template>
+<mat-autocomplete #auto="matAutocomplete" class="mat-autocomplete-panel"
+  (optionSelected)="onOptionSelected($event.option.value)" [displayWith]="displayFn">
+  <mat-option *ngIf="to['isSearching']">
+    <mat-spinner class="my-0 mx-auto" diameter=30></mat-spinner>
+  </mat-option>
+  <mat-option *ngFor="let value of filter | async" [value]="value" class="sm"
+    [disabled]="!value.institution_display_name || (value.institution_display_name == 'No matching results in the list' && !value.id)"
+    [ngClass]="allowSelection(value)">
+    {{ value.institution_display_name }}
+  </mat-option>
+</mat-autocomplete>
+
+
+
+
+
+<!-- 
+   <input matInput [matAutocomplete]="auto" #trigger="matAutocompleteTrigger" #selectedDs [formControl]="$any(formControl)"
+     [formlyAttributes]="field" (focus)="onFocusIn()" (blur)="onFocusOut()" [id]="id" [placeholder]="$any(to.placeholder)"
+     [errorStateMatcher]="errorStateMatcher" class="m1-theme mat-input-element w-100"
+     (keydown.escape)="escapeKeydown($event)">
+   <ng-template #matSuffix>
+     <mat-spinner *ngIf="to.disabled" class="disabled-input-spinner my-0 mx-auto" diameter=20></mat-spinner>
+     <mat-icon *ngIf="model[$any(field?.key?.toString())] && !to.disabled" aria-hidden="false" id="clear" class="input-reset"
+       (click)="resetInput( $event,trigger, auto)">
+       cancel</mat-icon>
+   </ng-template>
+   <mat-autocomplete #auto="matAutocomplete" class=" d-flex  flex-column mat-autocomplete-panel w-100"
+     (optionSelected)="onOptionSelected($event.option.value)" [displayWith]="displayFn">
+     <mat-option *ngIf="to['isSearching']" class="justify-content-center"> 
+       <mat-spinner class="my-0 mx-auto " diameter=30></mat-spinner>
+     </mat-option>
+     <mat-option *ngFor="let value of filter | async" [value]="value" class="sm"
+       [disabled]="!value.name || (value.name == 'No matching results in the list' && !value.id)"
+       [ngClass]="allowSelection(value)">
+       <div class="d-flex flex-col
+       ">
+       <ngx-avatar initialsSize=2 [name]="value.name" [src]="value?.logos? 'https://ik.imagekit.io/measureone/'+value?.logos+'?tr=w-100' : null" [round]="true" size="35">
+      </ngx-avatar>
+      <span class="px-3 py-2">
+        {{ value.name }}
+
+      </span>
+       </div>
+       
+     </mat-option>
+   </mat-autocomplete> -->

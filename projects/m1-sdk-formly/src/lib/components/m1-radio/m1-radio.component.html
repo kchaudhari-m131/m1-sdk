@@ -1,0 +1,12 @@
+<!-- <label id="m1-radio-group-label" [innerHTML]="to.label"></label> -->
+<mat-radio-group
+[formControl]="$any(formControl)"
+[formlyAttributes]="field"
+[tabIndex]="to.tabindex"
+[required]="to.required || false"
+[class]="to['className']"
+[labelPosition]="to['align'] || to['labelPosition']" [id]="id">
+  <mat-radio-button [color]="to['color']" class="m1-radio-button" *ngFor="let option of $any(to['options']); let i = index;" [value]="option.value" id="{{to['id']}}-{{i}}">
+    {{option.label}}
+  </mat-radio-button>
+</mat-radio-group>

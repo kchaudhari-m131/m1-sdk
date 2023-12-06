@@ -11,6 +11,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "m1-sdk-formly": [
+        "dist/m1-sdk-formly/m1-sdk-formly",
+        "dist/m1-sdk-formly"
+      ]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
