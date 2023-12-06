@@ -1,5 +1,5 @@
 {
-  "name": "ngx-m1-formly-lib",
+  "name": "m1-sdk",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -11,21 +11,31 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.3.0",
+    "@angular/cdk": "^13.3.9",
     "@angular/common": "~13.3.0",
     "@angular/compiler": "~13.3.0",
     "@angular/core": "~13.3.0",
     "@angular/forms": "~13.3.0",
+    "@angular/material": "^13.3.9",
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@ngx-formly/core": "^5.12.6",
+    "@ngx-formly/material": "^5.12.6",
+    "lodash": "^4.17.21",
+    "ngx-avatar": "^4.1.0",
+    "ngx-file-drop": "^13.0.0",
+    "ngx-mask": "^12.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~13.3.11",
     "@angular/cli": "~13.3.11",
     "@angular/compiler-cli": "~13.3.0",
     "@types/jasmine": "~3.10.0",
+    "@types/lodash": "^4.14.200",
     "@types/node": "^12.11.1",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
@@ -33,6 +43,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "ng-packagr": "^13.0.0",
     "typescript": "~4.6.2"
   }
 }

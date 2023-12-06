@@ -1,0 +1,16 @@
+<mat-form-field class="example-chip-list" appearance="outline" style="width: 100%;" >
+  <mat-label [id]="to['label_id']">{{to['label']}}</mat-label>
+  <mat-chip-list [formControl]="$any(formControl)" #chipList aria-label="Fruit selection" [required]="to['required'] || false" class="mob-chip-wrap-text">
+    <mat-chip *ngFor="let fruit of to['chipsData']; let i = index;" (removed)="remove(fruit)" id="{{id}}-{{i}}">
+      {{fruit}}
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+    <input [id]="id" placeholder="{{to['placeholder']}}" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+  </mat-chip-list>
+  <mat-error *ngIf="formControl.touched && formControl.invalid">
+    <formly-validation-message [field]="field"></formly-validation-message>
+  </mat-error>
+</mat-form-field>
